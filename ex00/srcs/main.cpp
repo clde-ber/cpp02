@@ -5,7 +5,7 @@ Fixed::Fixed( void ) : _n(0), _f(8)
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( Fixed& rhs ) : _n(rhs._n), _f(8)
+Fixed::Fixed( const Fixed& rhs ) : _n(rhs._n), _f(8)
 {
     std::cout << "Copy constructor called" << std::endl;
 }

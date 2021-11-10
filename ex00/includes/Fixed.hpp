@@ -10,7 +10,7 @@ class Fixed
         const int _f;
     public:
         Fixed( void );
-        Fixed( Fixed& rhs );
+        Fixed( const Fixed& rhs );
         ~Fixed();
         const Fixed &  operator=( Fixed const &rhs);
         int getRawBits(void) const;
