@@ -12,12 +12,12 @@ Fixed::Fixed( const Fixed& rhs ) : _n(rhs._n), _f(8)
 
 Fixed::Fixed( const int n) : _n(n), _f(8)
 {
-    this->_n = this->_n * pow_rebuild(2, 8);
+    this->_n = this->_n * pow_rebuild(2, this->_f);
 }
 
 Fixed::Fixed( const float n) : _n(n), _f(8)
 {
-    this->_n = roundf(this->_n * pow_rebuild(2, 8) + (n - this->_n) * pow_rebuild(2, 8));
+    this->_n = roundf(this->_n * pow_rebuild(2, this->_f) + (n - this->_n) * pow_rebuild(2, this->_f));
 }
 
 float pow_rebuild(float nb, float pow)
@@ -38,13 +38,13 @@ float Fixed::toFloat(void) const
 {
     float res(0);
 
-    res = this->_n / pow_rebuild(2, 8);
+    res = this->_n / pow_rebuild(2, this->_f);
     return res;
 }
 
 int Fixed::toInt(void) const
 {
- return this->_n / pow_rebuild(2, 8);
+ return this->_n / pow_rebuild(2, this->_f);
 }
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs)

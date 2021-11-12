@@ -1,5 +1,5 @@
-#ifndef KAREN_H
-#define KAREN_H
+#ifndef FIXED_H
+#define FIXED_H
 
 #include <iostream>
 
