@@ -12,9 +12,12 @@ class Fixed
         Fixed( void );
         Fixed( const Fixed& rhs );
         ~Fixed();
-        const Fixed &  operator=( Fixed const &rhs);
+        const Fixed & operator=( Fixed const &rhs);
         int getRawBits(void) const;
         void setRawBits(int const raw);
 };
+
+float pow_rebuild(float nb, float pow);
+
 
 #endif

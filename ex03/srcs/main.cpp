@@ -16,6 +16,8 @@ int main( void )
             Point pt(x.toFloat(), y.toFloat());
             if (bsp(a, b, c, pt) == true)
                 std::cout << "*";
+            else
+                std::cout << " ";
             y++;
         }
         std::cout << std::endl;

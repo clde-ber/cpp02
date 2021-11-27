@@ -1,6 +1,6 @@
 .SUFFIXES:
 
-NAME	=	Zombie
+NAME	=	fixed
 LIST	=	main \
 			Fixed \
 			Point \

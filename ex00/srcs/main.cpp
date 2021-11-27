@@ -1,25 +1,17 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed( void ) : _n(0), _f(8)
+float pow_rebuild(float nb, float pow)
 {
-    std::cout << "Default constructor called" << std::endl;
-}
+    float res(1);
 
-Fixed::Fixed( const Fixed& rhs ) : _n(rhs._n), _f(8)
-{
-    std::cout << "Copy constructor called" << std::endl;
-}
-
-const Fixed &  Fixed::operator=( Fixed const &rhs)
-{
-    std::cout << "Assignation operator called" << std::endl;
-    this->_n = rhs._n;
-    return rhs;
-}
-
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called" << std::endl;
+    for (int i = 0; i < pow; i++)
+        res = res * nb;
+    if (pow < 0)
+    {
+        for (int i = 0; i < -pow; i++)
+            res = res * 1 / nb;
+    }
+    return res;
 }
 
 int main(void)
