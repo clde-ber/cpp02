@@ -1,61 +1,64 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed( void ) : _n(0), _f(8)
+int const Fixed::_f = 8;
+
+Fixed::Fixed( void ) : _n(0)
 {
-//    std::cout << "Default constructor called" << std::endl;
+    /*
+    **  std::cout << "Default constructor called" << std::endl;
+    */
 }
 
-Fixed::Fixed( const Fixed& rhs ) : _n(rhs._n), _f(8)
+Fixed::Fixed( const Fixed& rhs ) : _n(rhs._n)
 {
-//    std::cout << "Copy constructor called" << std::endl;
+    /*
+    **  std::cout << "Copy constructor called" << std::endl;
+    */
 }
 
 const Fixed &  Fixed::operator=( Fixed const &rhs)
 {
-//    std::cout << "Assignation operator called" << std::endl;
+    _n = rhs._n;
+    /*
+    **  std::cout << "Assignation operator called" << std::endl;
+    */
     return rhs;
 }
 
 Fixed::~Fixed()
 {
-//    std::cout << "Destructor called" << std::endl;
+    /*
+    **  std::cout << "Destructor called" << std::endl;
+    */
 }
 
-Fixed::Fixed( const int n) : _n(n), _f(8)
+Fixed::Fixed( const int n) : _n(n)
 {
-    this->_n = this->_n * pow_rebuild(2, this->_f);
+    /*
+    **  std::cout << "Int constructor called" << std::endl;
+    */
+    _n = _n * pow_rebuild(2, _f);
 }
 
-Fixed::Fixed( const float n) : _n(n), _f(8)
+Fixed::Fixed( const float n) : _n(n)
 {
-    this->_n = roundf(this->_n * pow_rebuild(2, this->_f) + (n - this->_n) * pow_rebuild(2, this->_f));
-}
-
-float Fixed::pow_rebuild(float nb, float pow)
-{
-    float res(1);
-
-    for (int i = 0; i < pow; i++)
-        res = res * nb;
-    if (pow < 0)
-    {
-        for (int i = 0; i < -pow; i++)
-            res = res * 1 / nb;
-    }
-    return res;
+    /*
+    **  std::cout << "Float constructor called" << std::endl;
+    */
+    _n = roundf(_n * pow_rebuild(2, _f) + (n - _n) * pow_rebuild(2, _f));
 }
 
 float Fixed::toFloat(void) const
 {
     float res(0);
 
-    res = this->_n / pow_rebuild(2, this->_f);
+    res = _n / pow_rebuild(2, _f);
     return res;
 }
 
 int Fixed::toInt(void) const
 {
- return this->_n / pow_rebuild(2, this->_f);
+ return _n / pow_rebuild(2, _f);
 }
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
@@ -66,89 +69,89 @@ std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
 
 int Fixed::operator<(Fixed const & rhs)
 {
-    if (this->_n < rhs._n)
+    if (_n < rhs._n)
         return 1;
     return 0;
 }
 
 int Fixed::operator>(Fixed const & rhs)
 {
-    if (this->_n > rhs._n)
+    if (_n > rhs._n)
         return 1;
     return 0;
 }
 
 int Fixed::operator<=(Fixed const & rhs)
 {
-    if (this->_n <= rhs._n)
+    if (_n <= rhs._n)
         return 1;
     return 0;
 }
 
 int Fixed::operator>=(Fixed const & rhs)
 {
-    if (this->_n >= rhs._n)
+    if (_n >= rhs._n)
         return 1;
     return 0;
 }
 
 int Fixed::operator==(Fixed const & rhs)
 {
-    if (this->_n == rhs._n)
+    if (_n == rhs._n)
         return 1;
     return 0;
 }
 
 int Fixed::operator!=(Fixed const & rhs)
 {
-    if (this->_n != rhs._n)
+    if (_n != rhs._n)
         return 1;
     return 0;
 }
 
 Fixed Fixed::operator+(Fixed const & rhs)
 {
-    return Fixed(this->toFloat() + rhs.toFloat());
+    return Fixed(toFloat() + rhs.toFloat());
 }
 
 Fixed Fixed::operator-(Fixed const & rhs)
 {
-    return Fixed(this->toFloat() - rhs.toFloat());
+    return Fixed(toFloat() - rhs.toFloat());
 }
 
 Fixed Fixed::operator*(Fixed const & rhs)
 {
-    return Fixed(this->toFloat() * rhs.toFloat());
+    return Fixed(toFloat() * rhs.toFloat());
 }
 
 Fixed Fixed::operator/(Fixed const & rhs)
 {
-    return Fixed(this->toFloat() / rhs.toFloat());
+    return Fixed(toFloat() / rhs.toFloat());
 }
 
 Fixed& Fixed::operator++( void )
 {
-    ++this->_n;
+    ++_n;
     return *this;
 }
 
 Fixed Fixed::operator++(int)
 {
     Fixed tmp = *this;
-    this->_n++;
+    _n++;
     return tmp;
 }
 
 Fixed & Fixed::operator--( void )
 {
-    --this->_n;
+    --_n;
     return *this;
 }
 
 Fixed Fixed::operator--(int)
 {
     Fixed tmp = *this;
-    this->_n--;
+    _n--;
     return tmp;
 }
 
@@ -183,10 +186,10 @@ Fixed & Fixed::max(Fixed & a, Fixed & b)
 
 int Fixed::getRawBits(void) const 
 {
-    return (this->_n);
+    return (_n);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    this->_n = raw;
+    _n = raw;
 }

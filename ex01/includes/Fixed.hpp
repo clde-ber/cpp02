@@ -1,5 +1,5 @@
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef FIXED_H
+#define FIXED_H
 
 #include <iostream>
 #include <cmath>
@@ -8,9 +8,9 @@ class Fixed
 {
     private:
         int _n;
-        const int _f;
-        Fixed( void );
+        static const int _f;
     public:
+        Fixed( void );
         Fixed( const Fixed & rhs );
         Fixed( const int n);
         Fixed( const float n);

@@ -7,7 +7,7 @@ class Fixed
 {
     private:
         int _n;
-        const int _f;
+        static const int _f;
     public:
         Fixed( void );
         Fixed( const Fixed& rhs );
@@ -18,6 +18,5 @@ class Fixed
 };
 
 float pow_rebuild(float nb, float pow);
-
 
 #endif
