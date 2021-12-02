@@ -52,7 +52,7 @@ int Fixed::toInt(void) const
  return _n / pow_rebuild(2, _f);
 }
 
-const Fixed &  Fixed::operator=( Fixed const &rhs)
+const Fixed & Fixed::operator=( Fixed const & rhs)
 {
     _n = rhs._n;
     std::cout << "Assignation operator called" << std::endl;

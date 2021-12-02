@@ -12,7 +12,7 @@ Fixed::Fixed( const Fixed& rhs ) : _n(rhs._n)
     std::cout << "Copy constructor called" << std::endl;
 }
 
-const Fixed &  Fixed::operator=( Fixed const &rhs)
+const Fixed & Fixed::operator=( Fixed const & rhs)
 {
     _n = rhs._n;
     std::cout << "Assignation operator called" << std::endl;
