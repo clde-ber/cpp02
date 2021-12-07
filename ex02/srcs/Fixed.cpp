@@ -49,6 +49,21 @@ Fixed::Fixed( const float n) : _n(n)
     _n = roundf(_n * pow_rebuild(2, _f) + (n - _n) * pow_rebuild(2, _f));
 }
 
+
+float Fixed::pow_rebuild(float nb, float pow) const
+{
+    float res(1);
+
+    for (int i = 0; i < pow; i++)
+        res = res * nb;
+    if (pow < 0)
+    {
+        for (int i = 0; i < -pow; i++)
+            res = res * 1 / nb;
+    }
+    return res;
+}
+
 float Fixed::toFloat(void) const
 {
     float res(0);

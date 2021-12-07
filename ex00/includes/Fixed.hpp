@@ -8,6 +8,7 @@ class Fixed
     private:
         int _n;
         static const int _f;
+        float pow_rebuild(float nb, float pow) const;
     public:
         Fixed( void );
         Fixed( const Fixed& rhs );
@@ -16,7 +17,5 @@ class Fixed
         int getRawBits(void) const;
         void setRawBits(int const raw);
 };
-
-float pow_rebuild(float nb, float pow);
 
 #endif

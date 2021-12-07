@@ -9,6 +9,7 @@ class Fixed
     private:
         int _n;
         static const int _f;
+        float pow_rebuild(float nb, float pow) const;
     public:
         Fixed( void );
         Fixed( const Fixed & rhs );
@@ -23,6 +24,5 @@ class Fixed
 };
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
-float pow_rebuild(float nb, float pow);
 
 #endif

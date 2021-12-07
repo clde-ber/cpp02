@@ -29,6 +29,20 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
+float Fixed::pow_rebuild(float nb, float pow) const
+{
+    float res(1);
+
+    for (int i = 0; i < pow; i++)
+        res = res * nb;
+    if (pow < 0)
+    {
+        for (int i = 0; i < -pow; i++)
+            res = res * 1 / nb;
+    }
+    return res;
+}
+
 int Fixed::getRawBits(void) const 
 {
     return (_n);
