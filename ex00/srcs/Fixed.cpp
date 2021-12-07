@@ -14,9 +14,9 @@ Fixed::Fixed( const Fixed& rhs ) : _n(rhs._n)
 
 const Fixed & Fixed::operator=( Fixed const & rhs)
 {
-    _n = rhs._n;
     std::cout << "Assignation operator called" << std::endl;
-    return rhs;
+    new (this) Fixed(rhs);
+    return *this;
 }
 
 Fixed::~Fixed()

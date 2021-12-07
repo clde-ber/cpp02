@@ -18,7 +18,11 @@ int main(void)
 {
     Fixed a;
     Fixed const b(Fixed(5.05f) * Fixed(2));
+    Fixed c(1.02f);
+    c = b;
 
+    std::cout << "**********       c       **********" << std::endl;
+    std::cout << c << std::endl;
     std::cout << "**********       a       **********" << std::endl;
     std::cout << a << std::endl;
     std::cout << "**********     ++a       **********" << std::endl;

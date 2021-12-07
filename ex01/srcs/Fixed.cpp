@@ -54,9 +54,9 @@ int Fixed::toInt(void) const
 
 const Fixed & Fixed::operator=( Fixed const & rhs)
 {
-    _n = rhs._n;
     std::cout << "Assignation operator called" << std::endl;
-    return rhs;
+    new (this) Fixed(rhs);
+    return *this;
 }
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
